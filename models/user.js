@@ -1,11 +1,11 @@
 const mongoose = require("mongoose")
 const UserSchema = new mongoose.Schema({
-    name:{
+    username:{
         type:String,
         required:true,
         unique:true,
     },
-    username:{
+    name:{
         type:String,
         required:true,
         unique:true,
@@ -17,12 +17,12 @@ const UserSchema = new mongoose.Schema({
     },
     password:{
         type:String,
-        required:true
-        
+        required:true,
+        unique:true,
     },
     profilePic:{
         type:String,
-        required:false,
+        default:""
     },
 }, {timestamps:true})
 
