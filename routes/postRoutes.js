@@ -77,12 +77,12 @@ router.get("/", async (req,res)=>{
     try{
 
         let posts;
-        if(username){
-            posts = await Post.find({username});
+        if(user){
+            posts = await Post.find({username:user});
         }else if(category){
             posts = await Post.find({categories:{$in:[category]}})
         }else{
-            posts = Post.find();
+            posts = await Post.find();
         }
 
         res.status(200).json(posts);
